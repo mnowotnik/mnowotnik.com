@@ -1,3 +1,10 @@
+import "@fontsource/source-sans-pro"
+import "@fontsource/source-sans-pro/600.css"
+import "@fontsource/work-sans"
+import "@fontsource/work-sans/300.css"
+import "@fontsource/source-sans-pro/400-italic.css"
+// fix accessibility focus outline
+import "focus-visible/dist/focus-visible"
 import { extendTheme, theme } from "@chakra-ui/react"
 
 const defaultFontSizes = {
@@ -53,7 +60,7 @@ export default extendTheme({
     base: "1.6",
   },
   sizes: {
-    mainWidth: "44rem",
+    articleWidth: "44rem",
   },
   styles: {
     global: {

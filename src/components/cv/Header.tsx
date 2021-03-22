@@ -34,7 +34,7 @@ export default ({ personalInfo, ...props }: Props & FlexProps) => {
     </Flex>
   )
   return (
-    <Flex flexDirection="row" justifyContent="space-between" {...props}>
+    <Flex flexWrap={{base:"wrap",md:"nowrap"}} flexDirection={{base:"column",md:"row"}} justifyContent="space-between" {...props}>
       <Box>
         <Heading fontWeight={300} fontSize="3.6rem" mb={12}>
           {pi.fullName}

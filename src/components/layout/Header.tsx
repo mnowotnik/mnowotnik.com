@@ -1,11 +1,4 @@
-import {
-  Box,
-  Flex,
-  FlexProps,
-  Heading,
-  keyframes,
-  Text,
-} from "@chakra-ui/react"
+import { Box, Flex, FlexProps, Text } from "@chakra-ui/react"
 import Link from "components/ui/Link"
 import React from "react"
 

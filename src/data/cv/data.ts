@@ -28,17 +28,17 @@ const warsaw: Location = {
 }
 
 const summary =
-  "Reflective software engineer with analytical mind. " +
-  "Slow thinker - tends to analyze a problem in-depth before taking action. " +
-  "Likes to learn and teach others.\n" +
+  "Experienced software engineer with analytical mind.\n" +
   "Looking for technology or research oriented company to " +
-  "work on challenging projects."
+  "work on challenging projects. " +
+  "Fascinated by the ways technology can help us grow. "
+  "I like to learn and teach others."
 
 export const personalInfo: PersonalInfo = {
   firstName: "Michał",
   lastName: "Nowotnik",
   fullName: "Michał Nowotnik",
-  title: "Software Developer",
+  title: "Software Engineer",
   location: warsaw,
   email: "michal@mnowotnik.com",
   summary: summary,

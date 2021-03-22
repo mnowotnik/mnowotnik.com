@@ -12,15 +12,11 @@ interface Props extends FlexProps {
 }
 
 const Cv = ({ experience, personalInfo, education, ...rest }: Props) => (
-  <Box {...rest}>
-    <Header mx="auto" maxW="mainWidth" personalInfo={personalInfo} marginBottom={14} />
-    <Box mx="auto" as="main" maxW="mainWidth" width="100%">
+  <Box maxW="articleWidth" {...rest} mx="auto">
+    <Header personalInfo={personalInfo} marginBottom={14} />
+    <Box>
       <ExperienceSection experience={experience} />
     </Box>
   </Box>
 )
-{
-  /* <EducationSection width="30%" education={education} /> */
-}
-
 export default Cv
