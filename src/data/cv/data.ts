@@ -28,8 +28,8 @@ const warsaw: Location = {
 }
 
 const summary =
-  "Experienced software engineer with analytical mind.\n" +
-  "Looking for technology or research oriented company to " +
+  "Experienced software engineer with an analytical mind.\n" +
+  "Looking for a technology or research oriented company to " +
   "work on challenging projects. " +
   "Fascinated by the ways technology can help us grow. "
   "I like to learn and teach others."
