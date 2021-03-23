@@ -17,6 +17,7 @@ import { VscCode } from "react-icons/vsc"
 interface Props {
   personalInfo: PersonalInfo
 }
+const { useState } = React
 
 export default ({ personalInfo, ...props }: Props & FlexProps) => {
   const pi = personalInfo
@@ -33,6 +34,8 @@ export default ({ personalInfo, ...props }: Props & FlexProps) => {
       {children}
     </Flex>
   )
+  const email = pi.email.split("").reverse().join("")
+  const [state, setState] = useState({ email: pi.email })
   return (
     <Flex
       flexWrap={{ base: "wrap", md: "nowrap" }}
@@ -40,8 +43,8 @@ export default ({ personalInfo, ...props }: Props & FlexProps) => {
       justifyContent="space-between"
       {...props}
     >
-      <Box mb={{ base: 10, md: "inherit" }} mt={{base: 6, md: 4}}>
-        <Heading fontWeight={300} fontSize="5xl" mb={{base: 12, md: 14}}>
+      <Box mb={{ base: 10, md: "inherit" }} mt={{ base: 6, md: 4 }}>
+        <Heading fontWeight={300} fontSize="5xl" mb={{ base: 12, md: 14 }}>
           {pi.fullName}
         </Heading>
         <Text fontSize="lg">{pi.summary}</Text>
@@ -55,7 +58,17 @@ export default ({ personalInfo, ...props }: Props & FlexProps) => {
         </IconContainer>
         <IconContainer>
           <Icon as={MdEmail} />
-          <Link href={`mailto:${pi.email}`} {...iconTextProps}>
+          <Link
+            onClick={() => {
+              window.location.href = `mailto:${email}`
+            }}
+            onMouseOver={() => {
+              setState({ email })
+            }}
+            style={{ unicodeBidi: "bidi-override", direction: "rtl" }}
+            href={`mailto:${state.email}`}
+            {...iconTextProps}
+          >
             {pi.email}
           </Link>
         </IconContainer>

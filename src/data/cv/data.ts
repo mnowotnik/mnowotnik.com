@@ -40,7 +40,7 @@ export const personalInfo: PersonalInfo = {
   fullName: "Michał Nowotnik",
   title: "Software Engineer",
   location: warsaw,
-  email: "michal@mnowotnik.com",
+  email: "moc.kintowonm@lahcim",
   summary: summary,
 }
 
