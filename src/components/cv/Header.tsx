@@ -1,11 +1,4 @@
-import {
-  Box,
-  Flex,
-  FlexProps,
-  Heading,
-  Icon,
-  Text,
-} from "@chakra-ui/react"
+import { Box, Flex, FlexProps, Heading, Icon, Text } from "@chakra-ui/react"
 import { Button, ButtonGroup } from "@chakra-ui/react"
 import { PersonalInfo } from "data/cv/model"
 import React from "react"
@@ -34,8 +27,13 @@ export default ({ personalInfo, ...props }: Props & FlexProps) => {
     </Flex>
   )
   return (
-    <Flex flexWrap={{base:"wrap",md:"nowrap"}} flexDirection={{base:"column",md:"row"}} justifyContent="space-between" {...props}>
-      <Box>
+    <Flex
+      flexWrap={{ base: "wrap", md: "nowrap" }}
+      flexDirection={{ base: "column", md: "row" }}
+      justifyContent="space-between"
+      {...props}
+    >
+      <Box mb={{ base: 10, md: "inherit" }}>
         <Heading fontWeight={300} fontSize="3.6rem" mb={12}>
           {pi.fullName}
         </Heading>
