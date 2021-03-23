@@ -1,11 +1,18 @@
-import { Box, Flex, FlexProps, Heading, Icon, Text } from "@chakra-ui/react"
-import { Button, ButtonGroup } from "@chakra-ui/react"
+import {
+  Box,
+  Button,
+  Flex,
+  FlexProps,
+  Heading,
+  Icon,
+  Text,
+} from "@chakra-ui/react"
+import Link from "components/ui/Link"
 import { PersonalInfo } from "data/cv/model"
 import React from "react"
-import { MdMyLocation, MdEmail } from "react-icons/md"
 import { ImFilePdf } from "react-icons/im"
-import { VscCode, VscFilePdf } from "react-icons/vsc"
-import Link from "components/ui/Link"
+import { MdEmail, MdMyLocation } from "react-icons/md"
+import { VscCode } from "react-icons/vsc"
 
 interface Props {
   personalInfo: PersonalInfo
@@ -33,11 +40,11 @@ export default ({ personalInfo, ...props }: Props & FlexProps) => {
       justifyContent="space-between"
       {...props}
     >
-      <Box mb={{ base: 10, md: "inherit" }}>
-        <Heading fontWeight={300} fontSize="3.6rem" mb={12}>
+      <Box mb={{ base: 10, md: "inherit" }} mt={{base: 6, md: 4}}>
+        <Heading fontWeight={300} fontSize="5xl" mb={{base: 12, md: 14}}>
           {pi.fullName}
         </Heading>
-        <Text w="100%">{pi.summary}</Text>
+        <Text fontSize="lg">{pi.summary}</Text>
       </Box>
       <Flex direction="column">
         <IconContainer>

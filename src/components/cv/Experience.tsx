@@ -114,7 +114,7 @@ const JobView = ({ job }: { job: Job }) => {
         </Flex>
         {$jobInfo}
       </Box>
-      <Text textAlign={{ base: "justify", md: "initial" }}>
+      <Text>
         {job.description}
       </Text>
       {$jobSkills}

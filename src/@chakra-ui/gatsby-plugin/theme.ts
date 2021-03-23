@@ -57,7 +57,7 @@ export default extendTheme({
     light: 300,
   },
   lineHeights: {
-    base: "1.6",
+    base: {base: "1.5", md: "1.6"},
   },
   sizes: {
     articleWidth: "44rem",

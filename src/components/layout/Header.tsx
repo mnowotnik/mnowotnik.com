@@ -96,7 +96,7 @@ const Header = (props: FlexProps) => {
       w="100%"
       mb={8}
       mx="auto"
-      px={8}
+      px={{ base: 4, md: 8 }}
       bgColor="black"
       {...props}
     >
