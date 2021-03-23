@@ -14,26 +14,32 @@ import {
 import Link from "components/ui/Link"
 
 const Separator = (props: TextProps) => (
-  <Text marginX={4} {...props}>
-    |
-  </Text>
+  <Text borderColor="gray.500" borderWidth="1px" marginX={4} {...props}></Text>
 )
 
 const JobSkills = ({ skills, ...props }: { skills: Skill[] } & BoxProps) => {
-  const space = { base: 1, md: 2 }
+  const space = { base: 0.5, md: 1 }
   const fsizes = { base: "xs", md: "sm" }
   return (
-    <Flex {...props}>
+    <Flex
+      flexWrap="wrap"
+      flex={1}
+      flexDirection="row"
+      marginTop={3}
+      marginBottom={8}
+      {...props}
+    >
       {skills.map((s, idx) => (
         <Box
           key={idx}
-          borderRadius={1.5}
-          border={0.5}
+          borderWidth={0.5}
+          borderRadius={6}
           borderColor="verylightgray"
           color="dim"
           marginX={space}
+          marginY={space}
           paddingX={space}
-          paddingY={{ base: 0.5, md: 1 }}
+          // paddingY={{ base: 1, md: 1 }}
           justifyContent="center"
         >
           {s.link == null ? (
@@ -41,7 +47,7 @@ const JobSkills = ({ skills, ...props }: { skills: Skill[] } & BoxProps) => {
               {s.name}
             </Box>
           ) : (
-            <Link href={s.link} fontSize={fsizes}>
+            <Link as="div" href={s.link} fontSize={fsizes}>
               <Tooltip label={s.tooltip}>{s.name}</Tooltip>
             </Link>
           )}
@@ -52,16 +58,7 @@ const JobSkills = ({ skills, ...props }: { skills: Skill[] } & BoxProps) => {
 }
 
 const JobView = ({ job }: { job: Job }) => {
-  const $jobSkills = (
-    <JobSkills
-      skills={job.skills}
-      flexWrap="wrap"
-      flex={1}
-      flexDirection="row"
-      marginTop={3}
-      marginBottom={8}
-    />
-  )
+  const $jobSkills = <JobSkills skills={job.skills} />
 
   let $jobInfo = null
   if (job.roles && job.roles.length > 1) {
@@ -100,12 +97,18 @@ const JobView = ({ job }: { job: Job }) => {
             {job.title}
           </Text>
         </Flex>
-        <Flex flexDirection={{ base: "column", md: "row" }}>
+        <Flex
+          flexDirection={{ base: "column", md: "row-reverse" }}
+          justifyContent={{ md: "flex-end" }}
+        >
           <Link href={job.company.link}>{job.company.name}</Link>
           <Separator display={{ base: "none", md: "block" }} />
           <DateRange range={job.period} format="year-mon" />
           <Separator display={{ base: "none", md: "block" }} />
-          <Text color="dim" fontSize={{ base: "xs", md: "initial" }}>
+          <Text
+            color={{ base: "dim", md: "inherit" }}
+            fontSize={{ base: "xs", md: "unset" }}
+          >
             {job.location.city}, {job.location.countryCode}
           </Text>
         </Flex>
