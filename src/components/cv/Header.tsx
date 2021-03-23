@@ -59,6 +59,9 @@ export default ({ personalInfo, ...props }: Props & FlexProps) => {
         <IconContainer>
           <Icon as={MdEmail} />
           <Link
+            onTouchStart={() => {
+              window.location.href = `mailto:${email}`
+            }}
             onClick={() => {
               window.location.href = `mailto:${email}`
             }}

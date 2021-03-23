@@ -70,8 +70,8 @@ const JobView = ({ job }: { job: Job }) => {
         color="gray.600"
         marginBottom={2}
       >
-        {job.roles.map(role => (
-          <>
+        {job.roles.map((role, idx) => (
+          <React.Fragment key={idx}>
             <DateRange
               whiteSpace="nowrap"
               range={role.period}
@@ -79,7 +79,7 @@ const JobView = ({ job }: { job: Job }) => {
             />
             <Text marginX={1} />
             <Text whiteSpace="nowrap">{role.title}</Text>
-          </>
+          </React.Fragment>
         ))}
       </Grid>
     )
@@ -114,9 +114,7 @@ const JobView = ({ job }: { job: Job }) => {
         </Flex>
         {$jobInfo}
       </Box>
-      <Text>
-        {job.description}
-      </Text>
+      <Text>{job.description}</Text>
       {$jobSkills}
     </Box>
   )
