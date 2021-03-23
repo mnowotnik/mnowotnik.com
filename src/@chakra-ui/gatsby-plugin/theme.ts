@@ -68,7 +68,7 @@ export default extendTheme({
         "--bg-color": "#fff"
       },
       body: {
-        fontSize: "md",
+        fontSize: {base: "sm", md: "md"},
       },
     },
   },

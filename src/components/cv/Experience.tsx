@@ -8,41 +8,48 @@ import {
   Grid,
   GridItem,
   Text,
+  TextProps,
   Tooltip,
 } from "@chakra-ui/react"
 import Link from "components/ui/Link"
 
-const Separator = () => <Text marginX={4}>|</Text>
-
-const JobSkills = ({ skills, ...props }: { skills: Skill[] } & BoxProps) => (
-  <Flex {...props}>
-    {skills.map((s, idx) => (
-      <Box
-        key={idx}
-        borderRadius={1.5}
-        border={0.5}
-        borderColor="verylightgray"
-        color="dim"
-        marginX={2}
-        paddingX={2}
-        paddingY={2}
-        justifyContent="center"
-      >
-        {s.link == null ? (
-          <Box href={s.link} fontSize="sm">
-            {s.name}
-          </Box>
-        ) : (
-          <Link href={s.link} fontSize="sm">
-            <Tooltip label={s.tooltip} aira-label="A tooltip">
-              {s.name}
-            </Tooltip>
-          </Link>
-        )}
-      </Box>
-    ))}
-  </Flex>
+const Separator = (props: TextProps) => (
+  <Text marginX={4} {...props}>
+    |
+  </Text>
 )
+
+const JobSkills = ({ skills, ...props }: { skills: Skill[] } & BoxProps) => {
+  const space = { base: 1, md: 2 }
+  const fsizes = { base: "xs", md: "sm" }
+  return (
+    <Flex {...props}>
+      {skills.map((s, idx) => (
+        <Box
+          key={idx}
+          borderRadius={1.5}
+          border={0.5}
+          borderColor="verylightgray"
+          color="dim"
+          marginX={space}
+          paddingX={space}
+          paddingY={{ base: 0.5, md: 1 }}
+          justifyContent="center"
+        >
+          {s.link == null ? (
+            <Box href={s.link} fontSize={fsizes}>
+              {s.name}
+            </Box>
+          ) : (
+            <Link href={s.link} fontSize={fsizes}>
+              <Tooltip label={s.tooltip}>{s.name}</Tooltip>
+            </Link>
+          )}
+        </Box>
+      ))}
+    </Flex>
+  )
+}
 
 const JobView = ({ job }: { job: Job }) => {
   const $jobSkills = (
@@ -56,66 +63,57 @@ const JobView = ({ job }: { job: Job }) => {
     />
   )
 
-  let $jobInfo
+  let $jobInfo = null
   if (job.roles && job.roles.length > 1) {
     $jobInfo = (
-      <>
-        <Flex>
-          <DateRange range={job.period} format="year-mon" />
-          <Separator />
-          <Link href={job.company.link}>{job.company.name}</Link>
-          <Separator />
-          <Text>
-            {job.location.city}, {job.location.countryCode}
-          </Text>
-        </Flex>
-        <Grid
-          templateRows="repeat(2,min-content)"
-          templateColumns="repeat(3,min-content)"
-          fontSize="sm"
-          color="gray.600"
-          marginBottom={2}
-        >
-          {job.roles.map(role => (
-            <>
-              <DateRange
-                whiteSpace="nowrap"
-                range={role.period}
-                format="year-mon"
-              />
-              <Text marginX={1}/>
-              <Text whiteSpace="nowrap">{role.title}</Text>
-            </>
-          ))}
-        </Grid>
-      </>
-    )
-  } else {
-    $jobInfo = (
-      <Flex flexDirection="row" marginBottom={2}>
-        <DateRange range={job.period} format="year-mon" />
-        <Separator />
-        <Link href={job.company.link}>{job.company.name}</Link>
-        <Separator />
-        <Text>
-          {job.location.city}, {job.location.countryCode}
-        </Text>
-      </Flex>
+      <Grid
+        templateRows="repeat(2,min-content)"
+        templateColumns="repeat(3,min-content)"
+        fontSize="sm"
+        color="gray.600"
+        marginBottom={2}
+      >
+        {job.roles.map(role => (
+          <>
+            <DateRange
+              whiteSpace="nowrap"
+              range={role.period}
+              format="year-mon"
+            />
+            <Text marginX={1} />
+            <Text whiteSpace="nowrap">{role.title}</Text>
+          </>
+        ))}
+      </Grid>
     )
   }
-
   return (
     <Box>
       <Box>
-        <Flex marginBottom={1} fontSize="2xl" flexDirection="row">
+        <Flex
+          marginBottom={1}
+          fontSize={{ base: "xl", md: "2xl" }}
+          flexDirection="row"
+        >
           <Text marginRight={4}>❯</Text>
           <Text fontWeight="light" fontFamily="Work Sans">
             {job.title}
           </Text>
         </Flex>
+        <Flex flexDirection={{ base: "column", md: "row" }}>
+          <Link href={job.company.link}>{job.company.name}</Link>
+          <Separator display={{ base: "none", md: "block" }} />
+          <DateRange range={job.period} format="year-mon" />
+          <Separator display={{ base: "none", md: "block" }} />
+          <Text color="dim" fontSize={{ base: "xs", md: "initial" }}>
+            {job.location.city}, {job.location.countryCode}
+          </Text>
+        </Flex>
         {$jobInfo}
       </Box>
-      <Text>{job.description}</Text>
+      <Text textAlign={{ base: "justify", md: "initial" }}>
+        {job.description}
+      </Text>
       {$jobSkills}
     </Box>
   )
