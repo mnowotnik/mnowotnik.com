@@ -327,7 +327,7 @@ export const education: Education = {
     {
       title: "MSc",
       university: pw,
-      period: [2018, 2021],
+      period: [2018, 2022],
       major: "Computer Science",
     },
     {
