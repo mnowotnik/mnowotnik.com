@@ -24,24 +24,20 @@ const Layout = ({
     }
   `)
 
-  const [isReady, setReady] = useState(false)
+  // const [isReady, setReady] = useState(false)
 
-  useEffect(() => {
-    const waitForFonts = async () => {
-      try {
-        await document.fonts.load(`12px ${theme.fonts.bodyFont}`, "ł")
-        await document.fonts.load(`12px ${theme.fonts.bodyFont}`)
-      } catch (er) {
-        //
-      }
-      setReady(true)
-    }
-    waitForFonts()
-  }, [])
-
-  if (!isReady) {
-    return null
-  }
+  // useEffect(() => {
+  //   const waitForFonts = async () => {
+  //     try {
+  //       await document.fonts.load(`12px ${theme.fonts.bodyFont}`, "ł")
+  //       await document.fonts.load(`12px ${theme.fonts.bodyFont}`)
+  //     } catch (er) {
+  //       //
+  //     }
+  //     setReady(true)
+  //   }
+  //   waitForFonts()
+  // }, [])
 
   // TODO try to flatten nested divs?
   return (
@@ -56,7 +52,8 @@ const Layout = ({
         overflow="hidden"
         position="relative"
       >
-        <Transition location={location}>{children}</Transition>
+        {children}
+        {/* <Transition location={location}>{children}</Transition> */}
       </Box>
       <Footer />
     </Flex>
