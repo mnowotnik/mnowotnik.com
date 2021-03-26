@@ -1,5 +1,5 @@
 
-.PHONY: public yarn
+.PHONY: public yarn public/cv.pdf
 
 yarn=yarn
 ifeq (, $(shell which yarn))
@@ -17,12 +17,12 @@ node_modules:
 public:
 	$(yarn) run build
 
-public/_headers:
-	cp _headers public/_headers
+public/_headers: _headers
+	cp _headers $@
 
 public/cv.pdf:
 	$(yarn) run build-cv
-	cp cv-mnowotnik.pdf public/cv.pdf
+	mv cv-mnowotnik.pdf $@
 
 develop:
 	$(yarn) run develop

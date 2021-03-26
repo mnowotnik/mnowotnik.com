@@ -17,7 +17,7 @@ import { VscCode } from "react-icons/vsc"
 interface Props {
   personalInfo: PersonalInfo
 }
-const { useState } = React
+const { useState, useEffect } = React
 
 export default ({ personalInfo, ...props }: Props & FlexProps) => {
   const pi = personalInfo
@@ -36,7 +36,15 @@ export default ({ personalInfo, ...props }: Props & FlexProps) => {
   )
   const reverse = s => s.split("").reverse().join("")
   const email = pi.email
-  const [state, setState] = useState({ email: reverse(email) })
+  const [state, setState] = useState({
+    email: reverse(email),
+    emailStyle: { unicodeBidi: "bidi-override", direction: "rtl" },
+  })
+
+  useEffect(() => {
+    setState({ email, emailStyle: null })
+  }, [state.email, state.emailStyle])
+
   return (
     <Flex
       flexWrap={{ base: "wrap", md: "nowrap" }}
@@ -60,16 +68,7 @@ export default ({ personalInfo, ...props }: Props & FlexProps) => {
         <IconContainer>
           <Icon as={MdEmail} />
           <Link
-            onTouchStart={() => {
-              window.location.href = `mailto:${email}`
-            }}
-            onClick={() => {
-              window.location.href = `mailto:${email}`
-            }}
-            onMouseOver={() => {
-              setState({ email })
-            }}
-            style={{ unicodeBidi: "bidi-override", direction: "rtl" }}
+            style={state.emailStyle}
             href={`mailto:${state.email}`}
             {...iconTextProps}
           >
