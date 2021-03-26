@@ -1,0 +1,6 @@
+/*.woff
+  cache-control: public, s-max-age=604800
+/*.css
+  cache-control: public, s-max-age=604800
+/*.js
+  cache-control: public, s-max-age=604800

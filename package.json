@@ -32,7 +32,8 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^4.1.0",
     "react-transition-group": "^4.4.1",
-    "ts-node": "^9.0.0"
+    "ts-node": "^9.0.0",
+    "yarn": "^1.22.10"
   },
   "devDependencies": {
     "@fontsource/source-sans-pro": "^4.1.0",
