@@ -34,13 +34,20 @@ const summary =
   "Fascinated by the ways technology can help us grow. "
 ;("I like to learn and teach others.")
 
+const deobfuscateEmail = (s: string): string => {
+  let [p1, p2] = s.split("@")
+  p1 = p1.split("").reverse().join("")
+  p2 = p2.split("").reverse().join("")
+  return `${p1}@${p2}`
+}
+
 export const personalInfo: PersonalInfo = {
   firstName: "Michał",
   lastName: "Nowotnik",
   fullName: "Michał Nowotnik",
   title: "Software Engineer",
   location: warsaw,
-  email: "michal@mnowotnik.com",
+  email: deobfuscateEmail("lahcim@moc.kintowonm"),
   summary: summary,
 }
 
