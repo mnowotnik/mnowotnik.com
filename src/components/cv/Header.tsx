@@ -91,7 +91,7 @@ export default ({ personalInfo, ...props }: Props & FlexProps) => {
             leftIcon={<Icon as={ImFilePdf} />}
             variant="link"
           >
-            <Link href="/static/cv.pdf">Get PDF</Link>
+            <Link href="/cv.pdf">Get PDF</Link>
           </Button>
         </IconContainer>
       </Flex>
