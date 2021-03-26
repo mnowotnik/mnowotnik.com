@@ -72,7 +72,7 @@ export default ({ personalInfo, ...props }: Props & FlexProps) => {
             href={`mailto:${state.email}`}
             {...iconTextProps}
           >
-            {pi.email}
+            {state.email}
           </Link>
         </IconContainer>
         <IconContainer>
