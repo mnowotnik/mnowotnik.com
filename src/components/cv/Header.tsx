@@ -35,15 +35,15 @@ export default ({ personalInfo, ...props }: Props & FlexProps) => {
     </Flex>
   )
   const reverse = s => s.split("").reverse().join("")
-  const email = pi.email
   const [state, setState] = useState({
-    email: reverse(email),
+    email: reverse(pi.email),
     emailStyle: { unicodeBidi: "bidi-override", direction: "rtl" },
   })
 
-  useEffect(() => {
-    setState({ email, emailStyle: null })
-  }, [state.email, state.emailStyle])
+  useEffect(() => setState({ email: pi.email, emailStyle: null }), [
+    state.email,
+    state.emailStyle,
+  ])
 
   return (
     <Flex
