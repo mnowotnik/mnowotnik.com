@@ -34,8 +34,9 @@ export default ({ personalInfo, ...props }: Props & FlexProps) => {
       {children}
     </Flex>
   )
-  const email = pi.email.split("").reverse().join("")
-  const [state, setState] = useState({ email: pi.email })
+  const reverse = s => s.split("").reverse().join("")
+  const email = pi.email
+  const [state, setState] = useState({ email: reverse(email) })
   return (
     <Flex
       flexWrap={{ base: "wrap", md: "nowrap" }}

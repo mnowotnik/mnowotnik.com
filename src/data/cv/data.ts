@@ -32,7 +32,7 @@ const summary =
   "Looking for a technology or research oriented company to " +
   "work on challenging projects. " +
   "Fascinated by the ways technology can help us grow. "
-  "I like to learn and teach others."
+;("I like to learn and teach others.")
 
 export const personalInfo: PersonalInfo = {
   firstName: "Michał",
@@ -40,7 +40,7 @@ export const personalInfo: PersonalInfo = {
   fullName: "Michał Nowotnik",
   title: "Software Engineer",
   location: warsaw,
-  email: "moc.kintowonm@lahcim",
+  email: "michal@mnowotnik.com",
   summary: summary,
 }
 
@@ -63,19 +63,19 @@ const cassandra: Skill = {
   name: "Cassandra",
   strength: 2 / 5,
   link: "https://cassandra.apache.org/",
-  tooltip: "distributed, NoSQL database management system"
+  tooltip: "distributed, NoSQL database management system",
 }
 const postgresql: Skill = {
   name: "PostgreSQL",
   strength: 3 / 5,
   link: "https://www.postgresql.org/",
-  tooltip: dbmsTooltip
+  tooltip: dbmsTooltip,
 }
 const mysql: Skill = {
   name: "MySQL",
   strength: 3 / 5,
   link: "https://www.mysql.com/",
-  tooltip: dbmsTooltip
+  tooltip: dbmsTooltip,
 }
 const django: Skill = {
   name: "Django",
