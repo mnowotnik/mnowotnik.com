@@ -1,12 +1,14 @@
 
-.PHONY: public yarn public/cv.pdf
+.PHONY: public yarn public/cv.pdf build develop
 
 yarn=yarn
 ifeq (, $(shell which yarn))
 yarn=node_modules/.bin/yarn
 endif
 
-build: $(yarn) public public/_headers public/cv.pdf
+develop:
+
+build: $(yarn) public public/_headers public/resume.pdf
 
 $(yarn):
 	which $@ || npm install yarn
@@ -21,7 +23,7 @@ public/_headers: _headers
 	cp _headers $@
 
 public/resume.pdf:
-	$(yarn) run build-cv
+	$(yarn) run build-resume
 	mv resume.pdf public/
 
 develop:
