@@ -229,7 +229,7 @@ jobsArr.push({
 
 const enigma_desc =
   "Maintained and developed various web services in Java and Python as a part of a complex " +
-  "distributed system. Created a Django application serving Angular SPA."
+  "distributed system. Created a python web application serving Angular SPA."
 
 jobsArr.push({
   description: enigma_desc,
