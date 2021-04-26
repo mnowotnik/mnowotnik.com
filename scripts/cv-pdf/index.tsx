@@ -7,7 +7,7 @@ import Resume from "./components/Resume"
 import theme from "./components/ui/theme"
 
 theme.registerFonts()
-const defaultPath = path.resolve(__dirname, "../../cv-mnowotnik.pdf")
+const defaultPath = path.resolve(__dirname, "../../resume.pdf")
 
 ReactPDF.render(
   <Resume education={education} experience={experience} personalInfo={personalInfo} />,

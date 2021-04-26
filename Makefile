@@ -20,9 +20,9 @@ public:
 public/_headers: _headers
 	cp _headers $@
 
-public/cv.pdf:
+public/resume.pdf:
 	$(yarn) run build-cv
-	mv cv-mnowotnik.pdf $@
+	mv resume.pdf public/
 
 develop:
 	$(yarn) run develop
