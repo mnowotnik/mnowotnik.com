@@ -19,8 +19,8 @@ jobs:
           key: ${{ runner.os }}
       - name: build
         run: |
-          yarn install
-          yarn install netlify-cli
+          yarn add
+          yarn add netlify-cli
           make build
       - name: Publish
         run: make deploy
