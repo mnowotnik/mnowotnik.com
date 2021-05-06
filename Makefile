@@ -28,3 +28,6 @@ public/resume.pdf:
 
 develop:
 	$(yarn) run develop
+
+deploy:
+	node_modules/.bin/netlify deploy --prod --dir ./public

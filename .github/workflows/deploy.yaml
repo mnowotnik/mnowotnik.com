@@ -13,16 +13,17 @@ jobs:
       - name: Save Gatsby .cache
         uses: actions/cache@v2
         with:
-          path: /.cache
+          path: |
+            /.cache
+            /node_modules
           key: ${{ runner.os }}
       - name: build
         run: |
           yarn install
+          yarn install netlify-cli
           make build
       - name: Publish
-        uses: netlify/actions/cli@master
-        with:
-          args: deploy --dir=public
+        run: make deploy
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
