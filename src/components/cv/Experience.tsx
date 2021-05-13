@@ -47,7 +47,7 @@ const JobSkills = ({ skills, ...props }: { skills: Skill[] } & BoxProps) => {
               {s.name}
             </Box>
           ) : (
-            <Link as="div" href={s.link} fontSize={fsizes}>
+            <Link display="block" href={s.link} fontSize={fsizes}>
               <Tooltip label={s.tooltip}>{s.name}</Tooltip>
             </Link>
           )}
