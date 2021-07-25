@@ -206,7 +206,7 @@ const pwc_desc =
 jobsArr.push({
   title: "Senior Consultant",
   description: pwc_desc,
-  period: new DateRange([2018, 4], [2020, 3]),
+  period: new DateRange([2018, 4], [2021, 3]),
   location: warsaw,
   company: companies.pwc_it_services,
   skills: [java, spring, kubernetes, docker, python, sql],
